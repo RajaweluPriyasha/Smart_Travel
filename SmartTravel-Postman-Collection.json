@@ -1,0 +1,164 @@
+{
+  "info": {
+    "_postman_id": "smart-travel-platform",
+    "name": "Smart Travel Booking Platform",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "User Service",
+      "item": [
+        {
+          "name": "Get User by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8086/users/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8086",
+              "path": ["users", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Flight Service",
+      "item": [
+        {
+          "name": "Get Flight by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/flights/200",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8082",
+              "path": ["flights", "200"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Hotel Service",
+      "item": [
+        {
+          "name": "Get Hotel by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8083/hotels/55",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8083",
+              "path": ["hotels", "55"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Notification Service",
+      "item": [
+        {
+          "name": "Send Notification",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "\"Test Notification\""
+            },
+            "url": {
+              "raw": "http://localhost:8084/notifications",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8084",
+              "path": ["notifications"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Payment Service",
+      "item": [
+        {
+          "name": "Make Payment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bookingId\": 1,\n  \"amount\": 23000\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8085/payments",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8085",
+              "path": ["payments"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Booking Service - Complete Flow",
+      "item": [
+        {
+          "name": "Create Booking",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": 1,\n  \"flightId\": 200,\n  \"hotelId\": 55,\n  \"travelDate\": \"2025-01-10\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/bookings",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["bookings"]
+            }
+          }
+        },
+        {
+          "name": "Confirm Booking",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/bookings/confirm/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["bookings", "confirm", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
